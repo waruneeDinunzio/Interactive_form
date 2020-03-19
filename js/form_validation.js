@@ -116,7 +116,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
           } else {
             activities.style.boxShadow = '0 0 1px 2px red';
             activities.style.color = 'red';
-            //activityErrorMassage();
+            activityErrorMassage();
             return false;
           }
         }
