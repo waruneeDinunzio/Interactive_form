@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const email = document.querySelector("#mail");
     const activitiesInput = document.querySelectorAll(".activities input");
     const activities = document.querySelector(".activities");
-    console.log(activitiesInput);
+    console.log(activities);
     const creditCard = document.querySelector("#credit-card");
     const payment = document.querySelector("#payment");
     const creditCardNum = document.querySelector("#cc-num");
@@ -102,9 +102,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     }
     const activityValidator = () => {
-        for (let i=0; i < activitiesInput.length; i ++) {
+        for (let i=0; i < activitiesInput.length; i +=1) {
           if (activitiesInput[i].checked) {
-            console.log(activitiesInput);
+            //console.log(activity[1]);
             activities.style.borderColor = 'white';
             let errorMassageDiv = document.querySelector('.activityErrorMassage');
             if (errorMassageDiv) {
@@ -113,7 +113,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
             activities.style.boxShadow = '';
             activities.style.color = '';
             return true;
-          } else {
+          } 
+        }
+        for (let i=0; i < activitiesInput.length; i +=1) {
+          if (!activitiesInput[i].checked) {
             activities.style.boxShadow = '0 0 1px 2px red';
             activities.style.color = 'red';
             activityErrorMassage();
@@ -159,7 +162,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     form.addEventListener('keyup', (e) => {
         nameValidator();
         emailValidator();
-        //activityValidator();
+        activityValidator();
         
         });
         
