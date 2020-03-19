@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const email = document.querySelector("#mail");
     const activitiesInput = document.querySelectorAll(".activities input");
     const activities = document.querySelector(".activities");
-    console.log(email);
+    console.log(activitiesInput);
     const creditCard = document.querySelector("#credit-card");
     const payment = document.querySelector("#payment");
     const creditCardNum = document.querySelector("#cc-num");
@@ -51,16 +51,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
          errorMassage.style.color = "red"
          emailLabel.appendChild(errorMassage);
     }
-    const registerErrorMassage = () => {
-        let errorMassageDiv = document.querySelector('.registerErrorMassage');
+    const activityErrorMassage = () => {
+        let errorMassageDiv = document.querySelector('.activityErrorMassage');
         if (errorMassageDiv) {
         errorMassageDiv.remove();
         }
         const registerLabel = activities.firstElementChild;
         console.log(registerLabel);
         const errorMassage = document.createElement("div");
-        errorMassage.className = "registerErrorMassage";
-        errorMassage.innerHTML= "** Please select at least one.";
+        errorMassage.className = "activityErrorMassage";
+        errorMassage.innerHTML= "** Please select at least one activity.";
         errorMassage.style.color = "red"
         registerLabel.appendChild(errorMassage);
     }
@@ -102,10 +102,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     }
     const activityValidator = () => {
-        for (let i=0; i< activitiesInput.length; i ++) {
+        for (let i=0; i < activitiesInput.length; i ++) {
           if (activitiesInput[i].checked) {
+            console.log(activitiesInput);
             activities.style.borderColor = 'white';
-            let errorMassageDiv = document.querySelector('.registerErrorMassage');
+            let errorMassageDiv = document.querySelector('.activityErrorMassage');
             if (errorMassageDiv) {
             errorMassageDiv.remove();
             }
@@ -115,7 +116,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
           } else {
             activities.style.boxShadow = '0 0 1px 2px red';
             activities.style.color = 'red';
-            registerErrorMassage();
+            //activityErrorMassage();
             return false;
           }
         }
@@ -131,6 +132,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
         //maybe put ErrorMassage(); here
         return false;
       }
+    }
+    const zipValidator = () => {
+      let zipValue = zipCodeNum.value;
+      if (/^\d{5}$/.test(zipValue) && zipValue !== "") {
+        zipCodeNum.style.borderColor = 'white';
+        return true;
+      } else {
+        zipCodeNum.style.borderColor = 'red';
+        //maybe put ErrorMassage(); here
+        return false;
+      }
+    }
+    const cvvValidator = () => {
+      let cvvValue = cvvNum.value;
+      if (/^\d{3}$/.test(cvvValue) && cvvValue !== "") {
+        cvvNum.style.borderColor = 'white';
+        return true;
+      } else {
+        cvvNum.style.borderColor = 'red';
+        //maybe put ErrorMassage(); here
+        return false;
+      }
+
     }
     form.addEventListener('keyup', (e) => {
         nameValidator();
@@ -151,9 +175,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
             }
             if (!activityValidator()) {
                 e.preventDefault();
-            }
+            } 
             if (cardPayment.selected && !creditCardValidator()) {
               e.preventDefault();
+            }
+            if (cardPayment.selected && !zipValidator()) {
+              e.preventDefault();
             } 
+            if (cardPayment.selected && !cvvValidator()) {
+              e.preventDefault();
+            }
+
         });
 });

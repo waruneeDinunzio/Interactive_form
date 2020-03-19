@@ -18,6 +18,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     */
     const size = document.getElementById('size');
     const design = document.getElementById('design');
+    const colorDiv = document.getElementById("colors-js-puns")
     const color = document.getElementById('color');
     const colorOption = document.querySelectorAll('#color option')
     //console.log(colorOption);
@@ -26,12 +27,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         //Hide the "Select Theme" option
         //console.log(designSelect[0]);
         designSelect[0].hidden = true;
-        colorOption[0].innerHTML = "Please select a T-shirt theme";
-        //console.log(colorOption[0]);
-
-    for (let i = 0; i < colorOption.length; i +=1) {
-    color[i].style.display = 'none';
-    } 
+        colorDiv.hidden = true;
 
     //console.log(colorOption);
     design.addEventListener('change', (e) => {
@@ -39,6 +35,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
        console.log(designSelect[1].value);
        console.log(eventTheme);
        if (designSelect[1].value === eventTheme) {
+            colorDiv.hidden = false;
             color[0].innerHTML = 'Cornflower Blue (JS Puns shirt only)';
             color[0].selected = true;
             color[0].style.display = 'block';
@@ -48,6 +45,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             color[4].style.display = 'none';
             color[5].style.display = 'none';  
        } else {
+            colorDiv.hidden = false;
             color[0].style.display = 'none';
             color[1].style.display = 'none';
             color[2].style.display = 'none';
@@ -104,11 +102,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
     Payment Info section
     */
    const payment = document.getElementById('payment');
-   let paymentSelect = document.querySelectorAll('#payment option');
+   const paymentSelect = document.querySelectorAll('#payment option');
+   const cardNum = document.querySelector("#cc-num");
+   const zipNum = document.querySelector("#zip");
+   const cvvNum = document.querySelector("#cvv");
+   cardNum.placeholder = "enter 13 -16 digits";
+   zipNum.placeholder = "enter 5 digits";
+   cvvNum.placeholder = "enter 3 digits";
    //Hide the "Select Payment Method" option
    console.log(paymentSelect);
    paymentSelect[0].hidden = true;
-   paymentSelect[0].disabled = true;
+   //paymentSelect[0].disabled = true;
+   paymentSelect[1].selected = true;
     const creditCard = document.getElementById('credit-card');
     const paypal = document.getElementById('paypal');
     const bitcoin = document.getElementById('bitcoin');
