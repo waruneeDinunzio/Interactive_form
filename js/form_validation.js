@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const cvvNum = document.querySelector("#cvv");
   //create name error massage function
   const nameErrorMassage = () => {
-      let errorMassageDiv = document.querySelector('.nameErrorMassage');
+      const errorMassageDiv = document.querySelector('.nameErrorMassage');
       if (errorMassageDiv) {
           errorMassageDiv.remove();
       }
@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   }
   //create email error massage function
   const emailErrorMassage = () => {
-      let errorMassageDiv = document.querySelector('.emailErrorMassage');
+      const errorMassageDiv = document.querySelector('.emailErrorMassage');
       if (errorMassageDiv) {
           errorMassageDiv.remove();
       }
@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
       emailLabel.appendChild(errorMassage);
   }
   const emailEmptyErrorMassage = () => {
-      let errorMassageDiv = document.querySelector('.emailErrorMassage');
+      const errorMassageDiv = document.querySelector('.emailErrorMassage');
       if (errorMassageDiv) {
           errorMassageDiv.remove();
       }
@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   }
   //create register activity error massage function
   const activityErrorMassage = () => {
-      let errorMassageDiv = document.querySelector('.activityErrorMassage');
+      const errorMassageDiv = document.querySelector('.activityErrorMassage');
       if (errorMassageDiv) {
           errorMassageDiv.remove();
       }
@@ -65,10 +65,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
   }
   //create name validation function
   const nameValidator = () => {
-      let nameValue = name.value;
+      const nameValue = name.value;
       if (/^[a-z]+$/.test(nameValue) && nameValue !== "") {
         name.style.borderColor = 'white';
-        let errorMassageDiv = document.querySelector('.nameErrorMassage');
+        const errorMassageDiv = document.querySelector('.nameErrorMassage');
         if (errorMassageDiv) {
             errorMassageDiv.remove();
         }
@@ -81,10 +81,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
   }
   //create email validation function
   const emailValidator = () => {
-      let emailValue = email.value;
+      const emailValue = email.value;
       if (/^[^@]+@[^@.]+\.[a-z]+$/i.test(emailValue) && emailValue !== "") {
           email.style.borderColor = 'white';
-          let errorMassageDiv = document.querySelector('.emailErrorMassage');
+          const errorMassageDiv = document.querySelector('.emailErrorMassage');
           if (errorMassageDiv) {
               errorMassageDiv.remove();
           }
@@ -104,7 +104,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
       for (let i=0; i < activitiesInput.length; i +=1) {
         if (activitiesInput[i].checked) {
             activities.style.borderColor = 'white';
-            let errorMassageDiv = document.querySelector('.activityErrorMassage');
+            const errorMassageDiv = document.querySelector('.activityErrorMassage');
             if (errorMassageDiv) {
                 errorMassageDiv.remove();
             }
@@ -124,7 +124,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
     //create credit card validation function
     const creditCardValidator = () => {
-      let cardValue = creditCardNum.value;
+      const cardValue = creditCardNum.value;
       if (/^\d{13,16}$/.test(cardValue) && cardValue !== "") {
         creditCardNum.style.borderColor = 'white';
         return true;
@@ -136,7 +136,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
     //create zip code validation function
     const zipValidator = () => {
-      let zipValue = zipCodeNum.value;
+      const zipValue = zipCodeNum.value;
       if (/^\d{5}$/.test(zipValue) && zipValue !== "") {
         zipCodeNum.style.borderColor = 'white';
         return true;
@@ -148,7 +148,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
     //create cvv number validation function
     const cvvValidator = () => {
-      let cvvValue = cvvNum.value;
+      const cvvValue = cvvNum.value;
       if (/^\d{3}$/.test(cvvValue) && cvvValue !== "") {
         cvvNum.style.borderColor = 'white';
         return true;
@@ -166,7 +166,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     //Create submit listener on the form element. form will show error message if it's not validated
     form.addEventListener('submit', (e) => {
     //set credit card payment selected as default
-      let cardPayment = payment[1];
+      const cardPayment = payment[1];
       if (!nameValidator()) {
           e.preventDefault();
       }
