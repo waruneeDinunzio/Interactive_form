@@ -1,2 +1,3 @@
 # techDegree_Unit-3
  Project 3 Interactive Form
+This project is one of the ten projects in treehouse full stack Javacript program. This project use JavaScript to create an interactive registration form for a fictional conferencd called "fullStack Conf." Basicly this form is interactive with user input. if user input are not validated, it'll show a error message to let a user know. it's a simple form but with JavaScript code make this form easier to user and make sure that we get the imformation in a right format. enjoy! 
