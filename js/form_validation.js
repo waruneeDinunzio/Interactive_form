@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
       const nameLabel = name.previousElementSibling;
       const errorMassage = document.createElement("div");
       errorMassage.className = "nameErrorMassage";
-      errorMassage.innerHTML= "** Name field can not be blank or have digit character. Please enter your first and last name.";
+      errorMassage.innerHTML= "** Name field can not be blank or have digit and special character. Just your first and last name, Please.";
       errorMassage.style.color = "red"
       nameLabel.appendChild(errorMassage);
   }
