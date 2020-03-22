@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     create global variables
     */
     const nameFocus = document.getElementById('name');
+    const email = document.getElementById('mail');
     const otherTitle = document.getElementById('other-title');
     const otherOption = document.getElementById('title');
     const design = document.getElementById('design');
@@ -24,6 +25,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     //set name text field to be in focus
     nameFocus.focus();
+    //set placeholder tell user to put just first name and last name
+    nameFocus.placeholder = "enter your first and last name"
+    //set pleceholer to tell user to put email address
+    email.placeholder = "enter your email address"
     // Set placeholder text of 'Your Job Role'in Job Role: other section and hide it. 
     otherTitle.placeholder = "Your Job Role";
     otherTitle.style.display = 'none';

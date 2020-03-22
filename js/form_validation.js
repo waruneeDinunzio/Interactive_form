@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
       const nameLabel = name.previousElementSibling;
       const errorMassage = document.createElement("div");
       errorMassage.className = "nameErrorMassage";
-      errorMassage.innerHTML= "** Name field can not be blank. Please enter your name.";
+      errorMassage.innerHTML= "** Name field can not be blank or have digit character. Please enter your first and last name.";
       errorMassage.style.color = "red"
       nameLabel.appendChild(errorMassage);
   }
@@ -66,7 +66,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   //create name validation function
   const nameValidator = () => {
       const nameValue = name.value;
-      if (/^[a-z]+$/.test(nameValue) && nameValue !== "") {
+      if (/^[a-zA-Z]* [a-zA-Z]*$/.test(nameValue) && nameValue !== "") {
         name.style.borderColor = 'white';
         const errorMassageDiv = document.querySelector('.nameErrorMassage');
         if (errorMassageDiv) {
